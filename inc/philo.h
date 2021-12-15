@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 15:59:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 16:12:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef enum s_bool
 {
 	TRUE = 1,
 	FALSE = 0,
+	SUCCESS = 1,
+	FAILURE = 0,
 }	t_bool;
 
 typedef struct s_data
@@ -37,5 +39,10 @@ typedef struct s_data
 
 t_data	*init_data(int ac, char **av);
 int		ft_atoi(char *s);
+void	*routine(void *arg);
+
+t_bool	create_philos(t_data *data);
+t_bool	join_philos(t_data *data);
+
 
 #endif

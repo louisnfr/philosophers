@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 15:59:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 16:18:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,31 @@ t_data	*init_data(int ac, char **av)
 	data->death = FALSE;
 	data->nb_philos = ft_atoi(av[1]);
 	return (data);
+}
+
+t_bool	create_philos(t_data *data)
+{
+	int	i;
+
+	data->philo = malloc(sizeof(pthread_t) * data->nb_philos);
+	if (!data->philo)
+		return (FAILURE);
+	i = -1;
+	while (++i < data->nb_philos)
+	{
+		pthread_create(&data->philo[i], NULL, &routine, data);
+	}
+	return (SUCCESS);
+}
+
+t_bool	join_philos(t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->nb_philos)
+	{
+		pthread_join(data->philo[i], NULL);
+	}
+	return (SUCCESS);
 }

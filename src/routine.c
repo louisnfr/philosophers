@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 16:14:05 by lraffin          ###   ########.fr       */
+/*   Created: 2021/12/15 16:13:50 by lraffin           #+#    #+#             */
+/*   Updated: 2021/12/15 16:20:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	*routine(void *arg)
 {
 	t_data	*data;
 
-	data = init_data(ac, av);
-	create_philos(data);
-	join_philos(data);
-	return (0);
+	data = arg;
+	while (!data->death)
+	{
+		printf("eating\n");
+		usleep(1000000);
+		printf("sleep\n");
+		usleep(1000000);
+		printf("think\n");
+		usleep(1000000);
+		data->death = TRUE;
+	}
+	return (NULL);
 }

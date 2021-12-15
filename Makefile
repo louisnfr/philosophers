@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/15 15:57:03 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/15 16:14:23 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SOURCES = \
 		main.c \
 		init.c \
 		exit.c \
+		routine.c \
 		\
 		utils/ft_strlen.c \
 		utils/ft_putstr_fd.c \
