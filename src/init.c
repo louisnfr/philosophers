@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 18:30:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 18:33:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_bool	init_philo(t_philo *philo, int i, t_dinner *dinner)
 	philo->last_meal = 0;
 	philo->has_eaten = 0;
 	philo->dinner = dinner;
+	return (SUCCESS);
 }
 
 t_bool	create_philos(t_dinner *dinner)
@@ -52,7 +53,7 @@ t_bool	create_philos(t_dinner *dinner)
 	i = -1;
 	while (++i < dinner->nb_philos)
 	{
-		init_philo(dinner->philo[i]);
+		init_philo(&dinner->philo[i], i, dinner);
 		pthread_create(&dinner->philo[i].thread, NULL, &routine, dinner->philo);
 	}
 	return (SUCCESS);
