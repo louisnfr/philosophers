@@ -1,6 +1,6 @@
 # philosophers
 
-[![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/lraffin/philosophers)](https://github.com/JaeSeoKim/badge42)
+[![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/lraffin/42cursus-philosophers)](https://github.com/JaeSeoKim/badge42)
 
 42Paris, December 2021.
 
