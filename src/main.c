@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 16:14:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 17:22:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av)
 
 	data = init_data(ac, av);
 	create_philos(data);
+	// check_death(dinner);
 	join_philos(data);
 	return (0);
 }

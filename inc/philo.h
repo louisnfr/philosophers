@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 16:12:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 17:28:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,27 @@
 # include <stdlib.h>
 
 # include "utils.h"
+
+typedef struct s_philo
+{
+	int id;
+	int has_eaten;
+	int left_fork;
+	int right_fork;
+	long long int last_meal;
+	pthread_t thread;
+	struct s_dinner *dinner;
+} t_philo;
+
+typedef struct s_dinner
+{
+	int num_philo;
+	int time_to_die;
+	int all_fed;
+	int is_dead;
+	pthread_mutex_t *fork;
+	t_philo *philo;
+} t_dinner;
 
 typedef enum s_bool
 {

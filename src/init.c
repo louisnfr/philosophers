@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 16:18:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 17:19:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_bool	create_philos(t_data *data)
 	i = -1;
 	while (++i < data->nb_philos)
 	{
-		pthread_create(&data->philo[i], NULL, &routine, data);
+		pthread_create(&data->philo[i].thread, NULL, &routine, data);
 	}
 	return (SUCCESS);
 }
