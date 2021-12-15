@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+.vscode
+philo
 
 # Object files
 *.o
