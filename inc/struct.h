@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 17:45:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 18:22:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_philo
 	int				forks;
 	// int				left_fork;
 	// int				right_fork;
-	long long int	last_meal;
+	unsigned long	last_meal;
 	pthread_t		thread;
 	struct s_dinner *dinner;
 } t_philo;
@@ -38,6 +38,7 @@ typedef struct s_philo
 typedef struct s_dinner
 {
 	int				nb_philos;
+	unsigned long	start_time;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;

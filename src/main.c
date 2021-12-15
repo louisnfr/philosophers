@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 17:22:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 17:50:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main(int ac, char **av)
 {
-	t_data	*data;
+	t_dinner	*dinner;
 
-	data = init_data(ac, av);
-	create_philos(data);
-	// check_death(dinner);
-	join_philos(data);
+	dinner = init_dinner(ac, av);
+	create_philos(dinner);
+	// check_death(dinner); //check si death ou allfed
+	join_philos(dinner);
 	return (0);
 }

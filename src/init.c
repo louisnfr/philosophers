@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 17:48:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 18:30:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,21 @@ t_dinner	*init_dinner(int ac, char **av)
 	dinner->nb_philos = ft_atoi(av[1]);
 	dinner->all_fed = FALSE;
 	dinner->death = FALSE;
+	dinner->start_time = gettime();
 	dinner->time_to_die = ft_atoi(av[2]);
 	dinner->time_to_eat = ft_atoi(av[3]);
 	dinner->time_to_sleep = ft_atoi(av[4]);
 	dinner->nb_eat = ft_atoi(av[5]);
 	return (dinner);
+}
+
+t_bool	init_philo(t_philo *philo, int i, t_dinner *dinner)
+{
+	philo->id = i;
+	philo->forks = 0;
+	philo->last_meal = 0;
+	philo->has_eaten = 0;
+	philo->dinner = dinner;
 }
 
 t_bool	create_philos(t_dinner *dinner)
@@ -42,7 +52,8 @@ t_bool	create_philos(t_dinner *dinner)
 	i = -1;
 	while (++i < dinner->nb_philos)
 	{
-		pthread_create(&dinner->philo[i].thread, NULL, &routine, dinner);
+		init_philo(dinner->philo[i]);
+		pthread_create(&dinner->philo[i].thread, NULL, &routine, dinner->philo);
 	}
 	return (SUCCESS);
 }

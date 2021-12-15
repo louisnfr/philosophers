@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/15 16:14:23 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/15 18:24:25 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SOURCES = \
 		\
 		utils/ft_strlen.c \
 		utils/ft_putstr_fd.c \
+		utils/gettime.c \
 		utils/ft_atoi.c
 
 ### COMPILATION ###
