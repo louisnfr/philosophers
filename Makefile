@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/15 21:53:08 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/15 22:39:49 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,9 @@ fclean: clean
 re: fclean all
 
 norm:
+	@echo "$(YELLOW)SOURCES$(NOC)"
 	-@norminette $(SRC_DIR)
+	@echo "$(YELLOW)INCLUDES$(NOC)"
 	-@norminette $(INC_DIR)
 
 push:

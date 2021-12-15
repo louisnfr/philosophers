@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:42:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 18:24:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 23:18:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int		ft_atoi(char *s);
 unsigned long	gettime(void);
 
 void	exit_error(char *error_msg, int exit_code);
+void	exit_error_free(t_dinner *dinner, char *error_msg, int exit_code);
 
 #endif

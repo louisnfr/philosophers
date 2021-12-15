@@ -6,22 +6,14 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 18:22:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 23:29:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-#include "philo.h"
-
-typedef enum s_bool
-{
-	TRUE = 1,
-	FALSE = 0,
-	SUCCESS = 1,
-	FAILURE = 0,
-}	t_bool;
+# include "philo.h"
 
 typedef struct s_philo
 {
@@ -39,9 +31,9 @@ typedef struct s_dinner
 {
 	int				nb_philos;
 	unsigned long	start_time;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
+	unsigned long	time_to_die;
+	unsigned long	time_to_eat;
+	unsigned long	time_to_sleep;
 	int				nb_eat;
 	t_bool			all_fed;
 	t_bool			death;
