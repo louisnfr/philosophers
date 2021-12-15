@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/15 14:30:09 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/15 15:57:03 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,19 @@ NAME	= philo
 
 ### SOURCE FILES ###
 SOURCES = \
-		main.c
+		main.c \
+		init.c \
+		exit.c \
+		\
+		utils/ft_strlen.c \
+		utils/ft_putstr_fd.c \
+		utils/ft_atoi.c
 
 ### COMPILATION ###
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP -I$(INCLUDE)
 DEBUG_F	= -g3 -fsanitize=address
-LIBS	= -lft -lncurses -lreadline
+LIBS	= -pthread
 
 ### INCLUDES ###
 INCLUDE		= inc
@@ -52,7 +58,7 @@ $(NAME): $(OBJ)
 
 -include $(DEP)
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCLUDE)/$(NAME).h
-	@mkdir -p obj
+	@mkdir -p obj/utils
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@echo "$(BLUE)clang $(NOC)$(notdir $@)"
 

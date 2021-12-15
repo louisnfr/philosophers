@@ -6,14 +6,15 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 14:57:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/15 15:58:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*start(void)
+void	*routine(void *arg)
 {
+	(void)arg;
 	while (1)
 	{
 		printf("eat\n");
@@ -27,13 +28,12 @@ void	*start(void)
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
+	t_data	*data;
 
-	pthread_t p;
-	pthread_mutex_t mutex;
-
-	pthread_create(&p, NULL, &start, NULL);
-	pthread_join(p, NULL);
+	data = init_data(ac, av);
+	// create_philos();
 	return (0);
 }
+
+	// pthread_create(&p, NULL, &routine, NULL);
+	// pthread_join(p, NULL);

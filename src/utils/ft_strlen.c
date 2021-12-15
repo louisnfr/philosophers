@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 15:59:29 by lraffin          ###   ########.fr       */
+/*   Created: 2021/12/15 15:44:41 by lraffin           #+#    #+#             */
+/*   Updated: 2021/12/15 15:44:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#include "philo.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <pthread.h>
-# include <stdlib.h>
-
-# include "utils.h"
-
-typedef enum s_bool
+int	ft_strlen(char *s)
 {
-	TRUE = 1,
-	FALSE = 0,
-}	t_bool;
+	int	i;
 
-typedef struct s_data
-{
-	pthread_t	*philo;
-	int			nb_philos;
-	int			forks;
-	t_bool		death;
-
-}	t_data;
-
-t_data	*init_data(int ac, char **av);
-int		ft_atoi(char *s);
-
-#endif
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
+}
