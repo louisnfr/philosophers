@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   check_death.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 15:42:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 01:55:44 by lraffin          ###   ########.fr       */
+/*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
+/*   Updated: 2021/12/16 02:27:25 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "philo.h"
 
-void	ft_putstr_fd(int fd, char *s);
-int		ft_atoi(char *s);
+void	check_death(t_data *data)
+{
+	int	i;
 
-unsigned long	gettime(void);
-
-void	update_status(char *msg, t_philo *philo);
-
-#endif
+	i = -1;
+	while (++i < data->nb_philos)
+	{
+		if (data->philo[i].meals_count < data->must_eat)
+			return ;
+	}
+	exit (0);
+}

@@ -6,29 +6,29 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 01:49:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:20:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	destroy_mutexes(t_dinner *dinner)
+void	destroy_mutexes(t_data *data)
 {
 	int	i;
 
 	i = -1;
-	while (++i < dinner->nb_philos)
-		pthread_mutex_destroy(&dinner->fork[i]);
+	while (++i < data->nb_philos)
+		pthread_mutex_destroy(&data->fork[i]);
 }
 
 int	main(int ac, char **av)
 {
-	t_dinner	*dinner;
+	t_data	*data;
 
-	dinner = init_dinner(ac, av);
-	create_philos(dinner);
-	// check_death(dinner); //check si death ou allfed
-	join_philos(dinner);
-	destroy_mutexes(dinner);
+	data = init_data(ac, av);
+	create_philos(data);
+	// check_death(data); //check si death ou allfed
+	join_philos(data);
+	destroy_mutexes(data);
 	return (0);
 }

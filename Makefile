@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/16 02:02:02 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/16 02:28:17 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ INIT =					\
 		create_philos.c
 
 ROUTINE =			\
-		routine.c
+		routine.c	\
+		actions.c
 
 EXIT =			\
 		exit.c
@@ -32,6 +33,7 @@ EXIT =			\
 UTILS =					\
 		utils.c			\
 		gettime.c		\
+		check_death.c		\
 		update_status.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)

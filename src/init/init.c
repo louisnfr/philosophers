@@ -6,41 +6,45 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:02:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:21:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_dinner	*init_dinner(int ac, char **av)
+static void	init_time(char **av, t_data *data)
 {
-	t_dinner	*dinner;
+	data->time->start = gettime();
+	data->time->to_die = ft_atoi(av[2]) * 1000;
+	data->time->to_eat = ft_atoi(av[3]) * 1000;
+	data->time->to_sleep = ft_atoi(av[4]) * 1000;
+}
+
+t_data	*init_data(int ac, char **av)
+{
+	t_data	*data;
 
 	if (ac != 6)
 		exit_error("wrong input", 1);
-	dinner = malloc(sizeof(t_dinner));
-	if (!dinner)
-		exit_error("dinner malloc()", 1);
-	dinner->fork = malloc(sizeof(pthread_mutex_t) * dinner->nb_philos);
-	if (!dinner)
-		exit_error_free(dinner, "fork malloc()", 1);
-	dinner->nb_philos = ft_atoi(av[1]);
-	dinner->all_fed = false;
-	dinner->death = false;
-	dinner->start_time = gettime();
-	dinner->time_to_die = ft_atoi(av[2]) * 1000;
-	dinner->time_to_eat = ft_atoi(av[3]) * 1000;
-	dinner->time_to_sleep = ft_atoi(av[4]) * 1000;
-	dinner->nb_eat = ft_atoi(av[5]);
-	return (dinner);
+	data = malloc(sizeof(t_data));
+	if (!data)
+		exit_error("data malloc()", 1);
+	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
+	if (!data)
+		exit_error_free(data, "fork malloc()", 1);
+	data->nb_philos = ft_atoi(av[1]);
+	data->is_all_fed = false;
+	data->one_died = false;
+	init_time(av, data);
+	data->must_eat = ft_atoi(av[5]);
+	return (data);
 }
 
-t_bool	init_philo(t_philo *philo, int i, t_dinner *dinner)
+t_bool	init_philo(t_philo *philo, int i, t_data *data)
 {
 	philo->id = i;
-	philo->forks = 0;
-	philo->last_meal = 0;
-	philo->has_eaten = 0;
-	philo->dinner = dinner;
+	philo->last_meal_time = 0;
+	philo->meals_count = 0;
+	philo->data = data;
 	return (success);
 }
