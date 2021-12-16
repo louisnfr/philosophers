@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/16 01:52:36 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/16 02:00:15 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,19 @@ NAME	= philo
 
 SRCS =				\
 		main.c		\
-		init.c		\
-		exit.c		\
-		routine.c	\
+		$(ROUTINE)	\
+		$(INIT)		\
+		$(EXIT)		\
 		$(UTILS)
+
+INIT =			\
+		init.c
+
+ROUTINE =			\
+		routine.c
+
+EXIT =			\
+		exit.c
 
 UTILS =					\
 		utils.c			\
@@ -36,7 +45,7 @@ CFLAGS	= -Wall -Wextra -Werror -MMD -MP
 LDFLAGS	= -pthread
 DEBUG	= -g3 -fsanitize=address
 
-vpath %.c $(addprefix $(SRC_DIR)/, . utils)
+vpath %.c $(addprefix $(SRC_DIR)/, . init routine exit utils)
 
 all: $(NAME)
 
