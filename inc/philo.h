@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 01:55:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:03:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define DIED "died"
 
 t_dinner	*init_dinner(int ac, char **av);
+t_bool		init_philo(t_philo *philo, int i, t_dinner *dinner);
 t_bool		create_philos(t_dinner *data);
 t_bool		join_philos(t_dinner *data);
 

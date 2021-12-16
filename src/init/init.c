@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 01:42:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:02:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,5 @@ t_bool	init_philo(t_philo *philo, int i, t_dinner *dinner)
 	philo->last_meal = 0;
 	philo->has_eaten = 0;
 	philo->dinner = dinner;
-	return (success);
-}
-
-t_bool	create_philos(t_dinner *dinner)
-{
-	int	i;
-
-	dinner->philo = malloc(sizeof(pthread_t) * dinner->nb_philos);
-	if (!dinner->philo)
-		return (failure);
-	i = -1;
-	while (++i < dinner->nb_philos)
-	{
-		init_philo(&dinner->philo[i], i, dinner);
-		pthread_mutex_init(&dinner->fork[i], NULL);
-		pthread_create(&dinner->philo[i].thread, NULL,
-			&routine, &dinner->philo[i]);
-	}
-	return (success);
-}
-
-t_bool	join_philos(t_dinner *dinner)
-{
-	int	i;
-
-	i = -1;
-	while (++i < dinner->nb_philos)
-		pthread_join(dinner->philo[i].thread, NULL);
 	return (success);
 }
