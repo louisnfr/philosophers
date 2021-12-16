@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/15 22:39:49 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/16 01:52:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,9 @@ SRCS =				\
 		$(UTILS)
 
 UTILS =					\
-		ft_strlen.c		\
-		ft_putstr_fd.c	\
+		utils.c			\
 		gettime.c		\
-		ft_atoi.c
+		update_status.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)

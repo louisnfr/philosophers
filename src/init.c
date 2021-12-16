@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 23:19:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 01:42:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_dinner	*init_dinner(int ac, char **av)
 	dinner->all_fed = false;
 	dinner->death = false;
 	dinner->start_time = gettime();
-	dinner->time_to_die = ft_atoi(av[2]);
-	dinner->time_to_eat = ft_atoi(av[3]);
-	dinner->time_to_sleep = ft_atoi(av[4]);
+	dinner->time_to_die = ft_atoi(av[2]) * 1000;
+	dinner->time_to_eat = ft_atoi(av[3]) * 1000;
+	dinner->time_to_sleep = ft_atoi(av[4]) * 1000;
 	dinner->nb_eat = ft_atoi(av[5]);
 	return (dinner);
 }
@@ -56,7 +56,7 @@ t_bool	create_philos(t_dinner *dinner)
 	while (++i < dinner->nb_philos)
 	{
 		init_philo(&dinner->philo[i], i, dinner);
-		// pthread_mutex_init(&dinner->fork[i], NULL);
+		pthread_mutex_init(&dinner->fork[i], NULL);
 		pthread_create(&dinner->philo[i].thread, NULL,
 			&routine, &dinner->philo[i]);
 	}

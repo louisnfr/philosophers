@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 15:47:02 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 15:47:40 by lraffin          ###   ########.fr       */
+/*   Created: 2021/12/16 01:51:15 by lraffin           #+#    #+#             */
+/*   Updated: 2021/12/16 01:54:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// static int	ft_strlen(char *s)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (s && s[i])
+// 		i++;
+// 	return (i);
+// }
+
+void	ft_putstr_fd(int fd, char *s)
+{
+	while (s && *s)
+		write(fd, s++, 1);
+}
 
 int	ft_atoi(char *s)
 {
