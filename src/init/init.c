@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:37:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 15:07:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_time	*init_time(char **av, t_data *data)
 	t_time	*time;
 
 	(void)data;
-	time = malloc(sizeof(time));
+	time = malloc(sizeof(t_time));
 	if (!time)
 		exit_error("time malloc()", 1);
 	time->start = gettime();
@@ -37,14 +37,14 @@ t_data	*init_data(int ac, char **av)
 	data = malloc(sizeof(t_data));
 	if (!data)
 		exit_error("data malloc()", 1);
-	// data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
-	// if (!data->fork)
-	// 	exit_error_free(data, "fork malloc()", 1);
+	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
+	if (!data->fork)
+		exit_error_free(data, "fork malloc()", 1);
 
 	data->nb_philos = ft_atoi(av[1]);
 	data->is_all_fed = false;
 	data->is_one_died = false;
-	data->time = init_time(av, data);
+	init_time(av, data);
 	data->must_eat = ft_atoi(av[5]);
 	return (data);
 }
