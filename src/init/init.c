@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 15:07:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 17:32:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,12 @@ t_data	*init_data(int ac, char **av)
 		exit_error("wrong input", 1);
 
 	data = malloc(sizeof(t_data));
-	if (!data)
-		exit_error("data malloc()", 1);
 	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
-	if (!data->fork)
-		exit_error_free(data, "fork malloc()", 1);
-
+	data->time = init_time(av, data);
 	data->nb_philos = ft_atoi(av[1]);
+	data->must_eat = ft_atoi(av[5]);
 	data->is_all_fed = false;
 	data->is_one_died = false;
-	init_time(av, data);
-	data->must_eat = ft_atoi(av[5]);
 	return (data);
 }
 
