@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:22:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:25:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:32:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_bool	eat_action(t_philo *philo, int i)
 {
 	// if ((gettime() - philo->data->start_time) - philo->last_meal > philo->data->time_to_die)
 	// {
-	// 	philo->data->one_died = true;
+	// 	philo->data->is_one_died = true;
 	// 	return (failure);
 	// }
 	pthread_mutex_lock(&philo->data->fork[i]);
@@ -38,4 +38,3 @@ void	sleep_action(t_philo *philo)
 	update_status("is sleeping", philo);
 	usleep(philo->data->time->to_sleep);
 }
-

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:13:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:27:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 02:32:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = arg;
-	while (!philo->data->one_died)
+	while (!philo->data->is_one_died)
 	{
 		eat_action(philo, philo->id);
 		sleep_action(philo);
