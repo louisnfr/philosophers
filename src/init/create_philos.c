@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 15:07:25 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:49:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,10 @@ t_bool	create_philos(t_data *data)
 {
 	int	i;
 
-	data->philo = malloc(sizeof(pthread_t) * data->nb_philos);
-	if (!data->philo)
-		return (failure);
+	
 	i = -1;
-	while (++i < data->nb_philos)
-	{
-		init_philo(&data->philo[i], i, data);
-		pthread_mutex_init(&data->fork[i], NULL);
-		pthread_create(&data->philo[i].thread, NULL,
-			&routine, &data->philo[i]);
-	}
+	init_philo(&data->philo[i], i, data);
+
 	return (success);
 }
 

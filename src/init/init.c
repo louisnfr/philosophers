@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 17:32:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:49:51 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,19 @@ t_data	*init_data(int ac, char **av)
 	data = malloc(sizeof(t_data));
 	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
 	data->time = init_time(av, data);
+	data->philo = malloc(sizeof(t_philo) * data->nb_philos);
+	
 	data->nb_philos = ft_atoi(av[1]);
 	data->must_eat = ft_atoi(av[5]);
 	data->is_all_fed = false;
 	data->is_one_died = false;
+	int i = -1;
+	while (++i < data->nb_philos)
+	{
+		pthread_mutex_init(&data->fork[i], NULL);
+		pthread_create(&data->philo[i].thread, NULL,
+			&routine, &data->philo[i]);
+	}
 	return (data);
 }
 

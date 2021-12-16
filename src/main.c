@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 17:34:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:46:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ void	clean_data(t_data *data)
 	int	i;
 
 	i = -1;
-	while (++i < data->nb_philos)
-		free(data->fork[i]);
+	free(data->time);
+	destroy_mutexes(data);
+	free(data);
+	// while (++i < data->nb_philos)
+	// 	free(data->fork[i]);
 }
 
 int	main(int ac, char **av)
