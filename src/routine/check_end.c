@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:43:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:44:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	is_all_fed(t_data *data)
 		if (data->philo[i].meals_count < data->must_eat)
 			return ;
 	}
-	printf("eve
-	\n");
+	printf("all the philosophers ate\n");
 	exit (0);
 }
