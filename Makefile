@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/17 23:07:43 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/17 23:40:05 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,11 @@ PARSING =				\
 		check_input.c
 
 ROUTINE =				\
+		check_end.c		\
 		routine.c		\
-		actions.c
+		eat.c			\
+		sleep.c			\
+		think.c
 
 EXIT =					\
 		exit.c			\
@@ -38,7 +41,6 @@ EXIT =					\
 UTILS =					\
 		utils.c			\
 		gettime.c		\
-		check_death.c	\
 		print.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)

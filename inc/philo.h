@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:13:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:41:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ t_bool			join_philos(t_data *data);
 t_bool			check_input(int ac, char **av);
 
 /*** routine ***/
+void			is_dead(t_philo *philo);
+void			is_all_fed(t_data *data);
 void			*routine(void *arg);
 t_bool			eat_action(t_philo *philo, int i);
 void			sleep_action(t_philo *philo);
@@ -52,6 +54,5 @@ int				ft_atoi(char *s);
 unsigned long	gettime(void);
 void			update_status(char *msg, t_philo *philo);
 void			prompt(void);
-void			check_death(t_data *data);
 
 #endif
