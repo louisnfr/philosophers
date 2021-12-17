@@ -6,10 +6,13 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:30:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:45:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-
+void	think_action(t_philo *philo)
+{
+	update_status(THINK, philo);
+}

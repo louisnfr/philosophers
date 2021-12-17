@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:41:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:45:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void			is_all_fed(t_data *data);
 void			*routine(void *arg);
 t_bool			eat_action(t_philo *philo, int i);
 void			sleep_action(t_philo *philo);
+void			think_action(t_philo *philo);
 
 /*** exit ***/
 void			exit_error(char *error_msg, int exit_code);
