@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 19:18:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 22:58:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_bool	join_philos(t_data *data)
 	i = -1;
 	while (++i < data->nb_philos)
 	{
-		printf("check\n");
 		pthread_join(data->philo[i].thread, NULL);
 	}
 	return (SUCCESS);

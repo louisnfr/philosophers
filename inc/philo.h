@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 19:16:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:13:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # include "enum.h"
 # include "struct.h"
 
-# define FORK "has taken a fork"
-# define EAT "is eating"
-# define SLEEP "is sleeping"
-# define THINK "is thinking"
-# define DIED "died"
+# define TAKE_FORK "\e[33mhas taken a fork\e[0m"
+# define EAT "\e[32mis eating\e[0m"
+# define SLEEP "\e[34mis sleeping\e[0m"
+# define THINK "\e[35mis thinking\e[0m"
+# define DIED "\e[91mdied\e[0m"
 
 /*** init ***/
 t_data			*init_data(int ac, char **av);
@@ -51,6 +51,7 @@ void			ft_putstr_fd(int fd, char *s);
 int				ft_atoi(char *s);
 unsigned long	gettime(void);
 void			update_status(char *msg, t_philo *philo);
+void			prompt(void);
 void			check_death(t_data *data);
 
 #endif
