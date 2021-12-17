@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/16 15:02:44 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/17 18:00:46 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME	= philo
 SRCS =				\
 		main.c		\
 		$(ROUTINE)	\
+		$(PARSING)	\
 		$(INIT)		\
 		$(EXIT)		\
 		$(UTILS)
@@ -23,17 +24,21 @@ INIT =					\
 		init.c			\
 		create_philos.c
 
-ROUTINE =			\
-		routine.c	\
+PARSING =				\
+		check_input.c
+
+ROUTINE =				\
+		routine.c		\
 		actions.c
 
-EXIT =			\
-		exit.c
+EXIT =					\
+		exit.c			\
+		clean_data.c
 
 UTILS =					\
 		utils.c			\
 		gettime.c		\
-		check_death.c		\
+		check_death.c	\
 		update_status.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -48,7 +53,7 @@ CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 LDFLAGS	= -pthread
 DEBUG	= -g3 -fsanitize=address
 
-vpath %.c $(addprefix $(SRC_DIR)/, . init routine exit utils)
+vpath %.c $(addprefix $(SRC_DIR)/, . init parsing routine exit utils)
 
 all: $(NAME)
 

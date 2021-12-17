@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 21:58:25 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/15 22:07:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 17:48:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 typedef enum e_bool
 {
-	true = 1,
-	false = 0,
-	success = 1,
-	failure = 0,
+	TRUE = 1,
+	FALSE = 0,
+	SUCCESS = 1,
+	FAILURE = 0,
 }	t_bool;
 
 #endif

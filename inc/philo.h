@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:27:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 18:04:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ t_bool			init_philo(t_philo *philo, int i, t_data *data);
 t_bool			create_philos(t_data *data);
 t_bool			join_philos(t_data *data);
 
+/*** parsing ***/
+t_bool			check_input(int ac, char **av);
+
 /*** routine ***/
 void			*routine(void *arg);
 t_bool			eat_action(t_philo *philo, int i);
@@ -42,6 +45,7 @@ void			sleep_action(t_philo *philo);
 /*** exit ***/
 void			exit_error(char *error_msg, int exit_code);
 void			exit_error_free(t_data *data, char *error_msg, int exit_code);
+void			clean_data(t_data *data);
 
 /*** utils ***/
 void			ft_putstr_fd(int fd, char *s);
