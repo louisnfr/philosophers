@@ -6,13 +6,13 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 18:04:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:10:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static t_time	*init_time(char **av, t_data *data)
+ t_time	*init_time(char **av, t_data *data)
 {
 	t_time	*time;
 
@@ -33,11 +33,10 @@ t_data	*init_data(int ac, char **av)
 
 	check_input(ac, av);
 	data = malloc(sizeof(t_data));
+	data->nb_philos = ft_atoi(av[1]);
 	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
 	data->philo = malloc(sizeof(t_philo) * data->nb_philos);
 	data->time = init_time(av, data);
-
-	data->nb_philos = ft_atoi(av[1]);
 	data->must_eat = ft_atoi(av[5]);
 	data->is_all_fed = FALSE;
 	data->is_one_died = FALSE;

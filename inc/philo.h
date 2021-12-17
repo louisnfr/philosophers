@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 18:04:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:16:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 
 /*** init ***/
 t_data			*init_data(int ac, char **av);
-t_bool			init_philo(t_philo *philo, int i, t_data *data);
 t_bool			create_philos(t_data *data);
 t_bool			join_philos(t_data *data);
 

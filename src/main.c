@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 18:05:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:17:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	data = init_data(ac, av);
-	// create_philos(data);
+	create_philos(data);
 	// // check_death(data); //check si death ou allfed
-	// join_philos(data);
+	join_philos(data);
 	// destroy_mutexes(data);
-	clean_data(data);
+	// clean_data(data);
 	return (0);
 }

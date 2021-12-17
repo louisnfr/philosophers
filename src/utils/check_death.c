@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/16 02:27:25 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:34:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	check_death(t_data *data)
 		if (data->philo[i].meals_count < data->must_eat)
 			return ;
 	}
+	printf("everyone ate\n");
 	exit (0);
 }
