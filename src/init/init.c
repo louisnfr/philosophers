@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 01:24:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 01:44:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,32 @@ static t_time	*init_time(char **av, t_data *data)
 static pthread_mutex_t	*init_forks(t_data *data)
 {
 	pthread_mutex_t	*forks;
-	int				i;
 
 	forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
 	if (!forks)
 		exit_error("fork malloc()", EXIT_FAILURE);
+	return (forks);
+}
+
+static void	init_mutexes(t_data *data)
+{
+	int	i;
+
 	i = -1;
 	while (++i < data->nb_philos)
-		pthread_mutex_init(&forks[i], NULL);
-	return (forks);
+		pthread_mutex_init(&data->fork[i], NULL);
+	pthread_mutex_init(&data->death, NULL);
+	pthread_mutex_init(&data->write, NULL);
+}
+
+static void	init_values(t_data *data, char **av)
+{
+	if (av[5])
+		data->must_eat = ft_atoi(av[5]);
+	else
+		data->must_eat = -1;
+	data->is_all_fed = FALSE;
+	data->is_one_died = FALSE;
 }
 
 t_data	*init_data(int ac, char **av)
@@ -47,15 +64,15 @@ t_data	*init_data(int ac, char **av)
 
 	check_input(ac, av);
 	data = malloc(sizeof(t_data));
+	if (!data)
+		exit_error("data malloc()", EXIT_FAILURE);
 	data->nb_philos = ft_atoi(av[1]);
 	data->fork = init_forks(data);
 	data->time = init_time(av, data);
 	data->philo = malloc(sizeof(t_philo) * data->nb_philos);
-	if (av[5])
-		data->must_eat = ft_atoi(av[5]);
-	else
-		data->must_eat = -1;
-	data->is_all_fed = FALSE;
-	data->is_one_died = FALSE;
+	if (!data->philo)
+		exit_error("philo malloc()", EXIT_FAILURE);
+	init_values(data, av);
+	init_mutexes(data);
 	return (data);
 }
