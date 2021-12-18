@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:23:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 02:45:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:31:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ long	get_time(void)
 }
 
 /* usleep but more precise and in ms */
-void	ft_usleep(long time_ms)
+void	ft_usleep(long ms)
 {
 	long	start;
 
 	start = get_time();
-	while ((get_time() - start) < time_ms)
-		usleep(time_ms / 10);
+	while ((get_time() - start) < ms)
+		usleep(ms / 10);
 }

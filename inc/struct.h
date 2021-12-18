@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:21:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:28:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_data
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	death;
 	pthread_mutex_t	write;
-	pthread_mutex_t	eat_mtx;
 }	t_data;
 
 #endif
