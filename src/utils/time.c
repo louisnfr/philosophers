@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:23:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 01:14:37 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 02:45:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 long	get_time(void)
 {
 	struct timeval	time;
-	long	ret;
+	long			ret;
 
 	if (gettimeofday(&time, NULL) < 0)
 		exit_error("gettimeofday()", EXIT_FAILURE);

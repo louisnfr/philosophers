@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 01:40:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 02:45:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_philo
 	long			last_meal_time;
 	pthread_t		thread;
 	struct s_data	*data;
-} t_philo;
+}	t_philo;
 
 typedef struct s_time
 {
@@ -45,6 +45,6 @@ typedef struct s_data
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	death;
 	pthread_mutex_t	write;
-} t_data;
+}	t_data;
 
 #endif

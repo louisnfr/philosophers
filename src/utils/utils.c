@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:51:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 01:14:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 02:45:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_putstr_fd(int fd, char *s)
 
 int	ft_atoi(char *s)
 {
-	long long	value;
+	unsigned long long	value;
 	int					sign;
 	size_t				i;
 
