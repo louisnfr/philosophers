@@ -6,19 +6,18 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 01:04:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 01:27:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static t_bool	init_philo(t_philo *philo, int i, t_data *data)
+static void	init_philo(t_philo *philo, int i, t_data *data)
 {
 	philo->id = i + 1;
 	philo->last_meal_time = 0;
 	philo->meals_count = 0;
 	philo->data = data;
-	return (SUCCESS);
 }
 
 t_bool	create_philos(t_data *data)
@@ -29,21 +28,18 @@ t_bool	create_philos(t_data *data)
 	while (++i < data->nb_philos)
 	{
 		init_philo(&data->philo[i], i, data);
-		pthread_mutex_init(&data->fork[i], NULL);
-		pthread_create(&data->philo[i].thread, NULL,
-			&routine, &data->philo[i]);
+		if (pthread_create(&data->philo[i].thread, NULL,
+				&routine, &data->philo[i]))
+			exit_error("pthread_create()", EXIT_FAILURE);
 	}
 	return (SUCCESS);
 }
 
-t_bool	join_philos(t_data *data)
+void	join_philos(t_data *data)
 {
 	int	i;
 
 	i = -1;
 	while (++i < data->nb_philos)
-	{
 		pthread_join(data->philo[i].thread, NULL);
-	}
-	return (SUCCESS);
 }
