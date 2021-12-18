@@ -6,24 +6,21 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 18:03:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:00:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static t_time	*init_time(char **av, t_data *data)
+static t_time	init_time(char **av, t_data *data)
 {
-	t_time	*time;
+	t_time	time;
 
 	(void)data;
-	time = malloc(sizeof(t_time));
-	if (!time)
-		exit_error("time malloc()", EXIT_FAILURE);
-	time->start = get_time();
-	time->die = ft_atoi(av[2]);
-	time->eat = ft_atoi(av[3]);
-	time->sleep = ft_atoi(av[4]);
+	time.start = get_time();
+	time.die = ft_atoi(av[2]);
+	time.eat = ft_atoi(av[3]);
+	time.sleep = ft_atoi(av[4]);
 	return (time);
 }
 
@@ -55,8 +52,6 @@ static void	init_values(t_data *data, char **av)
 		data->must_eat = ft_atoi(av[5]);
 	else
 		data->must_eat = -1;
-	data->is_all_fed = FALSE;
-	data->is_one_died = FALSE;
 }
 
 t_data	*init_data(int ac, char **av)
