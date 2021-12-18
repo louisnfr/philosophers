@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 02:25:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 02:26:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ t_bool	is_dead(t_philo *philo)
 {
 	long	time;
 
+	pthread_mutex_lock(&philo->data->death);
 	time = get_time() - philo->data->time->start;
 	if (time - philo->last_meal_time > philo->data->time->die)
 	{
 		update_status(DIED, philo);
 		philo->data->is_one_died = TRUE;
+		pthread_mutex_unlock(&philo->data->death);
 		return (FAILURE);
 	}
+	pthread_mutex_unlock(&philo->data->death);
 	return (SUCCESS);
 }
 
