@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 18:59:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:21:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define STRUCT_H
 
 # include "philo.h"
+
+typedef enum e_bool
+{
+	TRUE = 1,
+	FALSE = 0,
+	SUCCESS = 1,
+	FAILURE = 0,
+}	t_bool;
 
 typedef struct s_philo
 {

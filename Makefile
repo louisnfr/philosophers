@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/18 01:31:45 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/18 19:20:52 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,7 @@ PARSING =				\
 ROUTINE =				\
 		check_end.c		\
 		routine.c		\
-		eat.c			\
-		sleep.c			\
-		think.c
+		eat.c
 
 EXIT =					\
 		exit.c			\

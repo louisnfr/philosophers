@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 17:53:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:21:22 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <string.h>
 # include <pthread.h>
 # include <sys/time.h>
-# include "enum.h"
 # include "struct.h"
 
 # define TAKE_FORK "\e[33mhas taken a fork\e[0m"
@@ -41,8 +40,6 @@ void	*is_dead(void *arg);
 t_bool	is_all_fed(t_data *data);
 void	*routine(void *arg);
 t_bool	eat_action(t_philo *philo, int i);
-void	sleep_action(t_philo *philo);
-void	think_action(t_philo *philo);
 
 /*** exit ***/
 void	exit_error(char *error_msg, int exit_code);

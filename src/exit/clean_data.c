@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:56:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 18:05:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:08:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ static void	destroy_mutexes(t_data *data)
 
 void	clean_data(t_data *data)
 {
-	int	i;
-
-	i = -1;
-	free(data->time);
 	destroy_mutexes(data);
+	free(data->fork);
+	free(data->philo);
 	free(data);
-	// while (++i < data->nb_philos)
-	// 	free(data->fork[i]);
+	exit(0);
 }
