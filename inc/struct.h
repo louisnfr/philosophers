@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:28:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:05:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef enum e_bool
 	SUCCESS = 1,
 	FAILURE = 0,
 }	t_bool;
+
+typedef struct s_mutex
+{
+	pthread_mutex_t	mutex;
+	int				value;
+}	t_mutex;
 
 typedef struct s_philo
 {
@@ -45,11 +51,11 @@ typedef struct s_data
 {
 	int				nb_philos;
 	int				must_eat;
-	t_time			time;
 	t_philo			*philo;
 	pthread_mutex_t	*fork;
-	pthread_mutex_t	death;
-	pthread_mutex_t	write;
+	t_time			time;
+	t_mutex			death;
+	t_mutex			write;
 }	t_data;
 
 #endif

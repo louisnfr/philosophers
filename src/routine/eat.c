@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:31:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:44:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_bool	eat_action(t_philo *philo, int i)
 		ft_usleep(philo->data->time.eat);
 		philo->meal_count++;
 		put_forks(philo, i);
-		// is_all_fed(philo->data);
 	}
 	return (SUCCESS);
 }

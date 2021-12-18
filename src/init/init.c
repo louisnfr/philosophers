@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:33:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:25:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ static void	init_mutexes(t_data *data)
 	i = -1;
 	while (++i < data->nb_philos)
 		pthread_mutex_init(&data->fork[i], NULL);
-	pthread_mutex_init(&data->death, NULL);
-	pthread_mutex_init(&data->write, NULL);
+	pthread_mutex_init(&data->death.mutex, NULL);
+	pthread_mutex_init(&data->write.mutex, NULL);
+	write_mutex(&data->death, 0);
+	write_mutex(&data->write, 1);
 }
 
 static void	init_values(t_data *data, char **av)

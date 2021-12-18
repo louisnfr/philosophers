@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:21:22 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:45:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_bool	check_input(int ac, char **av);
 
 /*** routine ***/
 void	*is_dead(void *arg);
-t_bool	is_all_fed(t_data *data);
+void	is_all_fed(t_data *data);
 void	*routine(void *arg);
 t_bool	eat_action(t_philo *philo, int i);
 
@@ -49,8 +49,13 @@ void	clean_data(t_data *data);
 /*** utils ***/
 void	ft_putstr_fd(int fd, char *s);
 int		ft_atoi(char *s);
+/* mutex */
+void	write_mutex(t_mutex *mutex, int value);
+int		read_mutex(t_mutex *mutex);
+/* time*/
 long	get_time(void);
 void	ft_usleep(long time);
+/* print */
 void	update_status(char *msg, t_philo *philo);
 void	prompt(void);
 

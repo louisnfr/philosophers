@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:12:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:37:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,23 @@ static void	init_philo(t_philo *philo, int i, t_data *data)
 	philo->last_meal = 0;
 	philo->meal_count = 0;
 	philo->data = data;
+}
+
+void	*is_dead(void *arg)
+{
+	t_philo *philo;
+	long	time;
+
+	philo = arg;
+	ft_usleep(philo->data->time.die);
+	time = get_time() - philo->data->time.start;
+	if (time - philo->last_meal >= philo->data->time.die)
+	{
+		update_status(DIED, philo);
+		write_mutex(&philo->data->write, 0);
+		write_mutex(&philo->data->death, 1);
+	}
+	return (NULL);
 }
 
 t_bool	create_philos(t_data *data)

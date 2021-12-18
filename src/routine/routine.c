@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:13:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:33:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:39:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ static void	think_action(t_philo *philo)
 
 void	*routine(void *arg)
 {
+	t_data	*data;
 	t_philo	*philo;
 
 	philo = arg;
-	while (1)
+	data = philo->data;
+	while (!read_mutex(&data->death) && (philo->meal_count < data->must_eat))
 	{
 		eat_action(philo, philo->id);
 		sleep_action(philo);

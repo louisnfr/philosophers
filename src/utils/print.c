@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:33:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 19:42:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 00:26:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	update_status(char *msg, t_philo *philo)
 {
+	t_data	*data;
 	long	time;
 
-	time = get_time() - philo->data->time.start;
-	pthread_mutex_lock(&philo->data->write);
-	printf(" %-6lu ms | %4d | %s\n", time, philo->id + 1, msg);
-	pthread_mutex_unlock(&philo->data->write);
+	data = philo->data;
+	time = get_time() - data->time.start;
+	pthread_mutex_lock(&data->write.mutex);
+	if (data->write.value == 1)
+		printf(" %-6lu ms | %4d | %s\n", time, philo->id + 1, msg);
+	pthread_mutex_unlock(&data->write.mutex);
 }
 
 void	prompt(void)

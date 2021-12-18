@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_data.c                                       :+:      :+:    :+:   */
+/*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 17:56:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:45:06 by lraffin          ###   ########.fr       */
+/*   Created: 2021/12/19 00:07:52 by lraffin           #+#    #+#             */
+/*   Updated: 2021/12/19 00:13:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	destroy_mutexes(t_data *data)
+void	write_mutex(t_mutex *t_mutex, int value)
 {
-	int	i;
-
-	i = -1;
-	while (++i < data->nb_philos)
-		pthread_mutex_destroy(&data->fork[i]);
+	pthread_mutex_lock(&t_mutex->mutex);
+	t_mutex->value = value;
+	pthread_mutex_unlock(&t_mutex->mutex);
 }
 
-void	clean_data(t_data *data)
+int	read_mutex(t_mutex *t_mutex)
 {
-	is_all_fed(data);
-	destroy_mutexes(data);
-	free(data->fork);
-	free(data->philo);
-	free(data);
-	exit(0);
+	int	value;
+
+	pthread_mutex_lock(&t_mutex->mutex);
+	value = t_mutex->value;
+	pthread_mutex_unlock(&t_mutex->mutex);
+	return (value);
 }
