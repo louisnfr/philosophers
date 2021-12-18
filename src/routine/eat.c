@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 14:22:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 18:05:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ static void	take_forks(t_philo *philo, int i)
 
 t_bool	eat_action(t_philo *philo, int i)
 {
-	is_dead(philo);
 	take_forks(philo, i);
 	update_status(EAT, philo);
+	pthread_mutex_lock(&philo->data->eat_mtx);
 	ft_usleep(philo->data->time->eat);
+	pthread_mutex_unlock(&philo->data->eat_mtx);
+	pthread_mutex_unlock(&philo->data->fork[i]);
+	pthread_mutex_unlock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
 	philo->last_meal_time = get_time() - philo->data->time->start;
 	philo->meals_count++;
 	is_all_fed(philo->data);
-	pthread_mutex_unlock(&philo->data->fork[i]);
-	pthread_mutex_unlock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
 	return (SUCCESS);
 }

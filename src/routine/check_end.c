@@ -6,28 +6,31 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 14:23:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 18:34:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_bool	is_dead(t_philo *philo)
+void	*is_dead(void *arg)
 {
+	t_philo *philo;
 	long	time;
 
-	// pthread_mutex_lock(&philo->data->death);
+	philo = arg;
+	ft_usleep(philo->data->time->die + 1);
 	time = get_time() - philo->data->time->start;
-	if (time - philo->last_meal_time > philo->data->time->die)
+	pthread_mutex_lock(&philo->data->eat_mtx);
+	if (time - philo->last_meal_time >= philo->data->time->die)
 	{
+		pthread_mutex_unlock(&philo->data->eat_mtx);
 		update_status(DIED, philo);
 		philo->data->is_one_died = TRUE;
-		// pthread_mutex_unlock(&philo->data->death);
-		exit(0);
-		return (SUCCESS);
+		// exit(0);
+		return (NULL);
 	}
-	// pthread_mutex_unlock(&philo->data->death);
-	return (FAILURE);
+	pthread_mutex_unlock(&philo->data->eat_mtx);
+	return (NULL);
 }
 
 t_bool	is_all_fed(t_data *data)
@@ -40,7 +43,9 @@ t_bool	is_all_fed(t_data *data)
 		if (data->philo[i].meals_count < data->must_eat)
 			return (FALSE);
 	}
+	pthread_mutex_lock(&data->write);
 	printf("all the philosophers ate\n");
+	pthread_mutex_unlock(&data->write);
 	exit (0);
 	return (SUCCESS);
 }

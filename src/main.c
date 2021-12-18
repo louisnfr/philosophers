@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 14:19:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 18:30:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_death(t_data *data)
 
 void	end(t_data *data)
 {
-	while (!check_death(data))
+	while (!data->is_one_died || !data->is_all_fed)
 		ft_usleep(1);
 	join_philos(data);
 	clean_data(data);
