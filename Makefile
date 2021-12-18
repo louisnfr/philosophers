@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/19 00:11:38 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/19 00:48:11 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,13 @@ SRCS =				\
 		$(UTILS)
 
 INIT =					\
-		init.c			\
-		create_philos.c
+		data.c			\
+		philos.c
 
 PARSING =				\
-		check_input.c
+		input.c
 
 ROUTINE =				\
-		check_end.c		\
 		routine.c		\
 		eat.c
 
