@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 22:58:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 01:04:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_bool	init_philo(t_philo *philo, int i, t_data *data)
 {
-	philo->id = i;
+	philo->id = i + 1;
 	philo->last_meal_time = 0;
 	philo->meals_count = 0;
 	philo->data = data;

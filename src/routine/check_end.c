@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:27:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:44:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 00:55:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	is_dead(t_philo *philo)
 {
-	if ((gettime() - philo->data->time->start)
-		- philo->last_meal_time > philo->data->time->to_die)
+	if ((get_time() - philo->data->time->start)
+		- philo->last_meal_time > philo->data->time->die)
 	{
 		update_status(DIED, philo);
 		philo->data->is_one_died = TRUE;

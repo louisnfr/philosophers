@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 00:02:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 01:14:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int ac, char **av)
 	data = init_data(ac, av);
 	prompt();
 	create_philos(data);
-	// check_death(data); //check si death ou allfed
+	// while (!data->is_one_died)
+	// 	ft_usleep(1);
 	join_philos(data);
 	clean_data(data);
 	return (0);

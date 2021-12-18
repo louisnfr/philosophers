@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:33:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:08:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 00:55:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	update_status(char *msg, t_philo *philo)
 {
 	printf(" %-6lu ms | N°: %-3d | %s\n",
-		gettime() - philo->data->time->start, philo->id, msg);
+		get_time() - philo->data->time->start, philo->id, msg);
 }
 
 void	prompt(void)

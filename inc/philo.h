@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/17 23:45:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/18 01:14:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void			clean_data(t_data *data);
 /*** utils ***/
 void			ft_putstr_fd(int fd, char *s);
 int				ft_atoi(char *s);
-unsigned long	gettime(void);
+long	get_time(void);
+void			ft_usleep(long time);
 void			update_status(char *msg, t_philo *philo);
 void			prompt(void);
 

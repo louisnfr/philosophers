@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/17 23:40:05 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/18 00:51:27 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ EXIT =					\
 
 UTILS =					\
 		utils.c			\
-		gettime.c		\
+		time.c			\
 		print.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
