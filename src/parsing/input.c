@@ -6,14 +6,14 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:58:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:53:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:57:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* accepts 0 */
-static t_bool is_int(char *av)
+static t_bool	is_int(char *av)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ static t_bool is_int(char *av)
 }
 
 /* does not accept 0 */
-static t_bool is_non_zero_int(char *av)
+static t_bool	is_non_zero_int(char *av)
 {
 	int	i;
 

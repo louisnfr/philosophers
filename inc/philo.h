@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:12:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:58:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	eat_action(t_philo *philo, int i);
 
 /*** exit ***/
 void	exit_error(char *error_msg, int exit_code);
-void	exit_error_free(t_data *data, char *error_msg, int exit_code);
+void	exit_error_free(char *error_msg, int exit_code, t_data *data);
 void	clean_data(t_data *data);
 
 /*** utils ***/

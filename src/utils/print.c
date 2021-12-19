@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:33:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:39:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:57:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	update_status(char *msg, t_philo *philo)
 {
 	t_data	*data;
-	int	time;
+	int		time;
 
 	data = philo->data;
 	pthread_mutex_lock(&data->write.mutex);

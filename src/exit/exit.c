@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:36:19 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:44:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:58:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	exit_error(char *error_msg, int exit_code)
 	exit(exit_code);
 }
 
-void	exit_error_free(t_data *data, char *error_msg, int exit_code)
+void	exit_error_free(char *error_msg, int exit_code, t_data *data)
 {
 	ft_putstr_fd(2, "error: ");
 	ft_putstr_fd(2, error_msg);

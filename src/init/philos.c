@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:36:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:57:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	init_philo(t_philo *philo, int i, t_data *data)
 /* thread to check continuously if the philosopher is dead */
 static void	*death(void *arg)
 {
-	t_data *data;
-	t_philo *philo;
+	t_data	*data;
+	t_philo	*philo;
 
 	philo = arg;
 	data = philo->data;
@@ -49,10 +49,12 @@ t_bool	create_philos(t_data *data)
 	while (++i < data->nb_philos)
 	{
 		init_philo(&data->philo[i], i, data);
-		if (pthread_create(&data->philo[i].thread, NULL, &routine, &data->philo[i]))
-			exit_error("pthread_create()", EXIT_FAILURE);
-		if (pthread_create(&data->philo[i].death_thread, NULL, &death, &data->philo[i]))
-			exit_error("pthread_create()", EXIT_FAILURE);
+		if (pthread_create(&data->philo[i].thread, NULL,
+				&routine, &data->philo[i]))
+			exit_error_free("pthread_create()", EXIT_FAILURE, data);
+		if (pthread_create(&data->philo[i].death_thread, NULL,
+				&death, &data->philo[i]))
+			exit_error_free("pthread_create()", EXIT_FAILURE, data);
 	}
 	return (SUCCESS);
 }
