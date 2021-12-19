@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 01:43:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:24:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ t_data	*init_data(int ac, char **av)
 {
 	t_data	*data;
 
-	check_input(ac, av);
+	if (!check_input(ac, av))
+		exit_error("invalid arguments", EXIT_FAILURE);
 	data = malloc(sizeof(t_data));
 	if (!data)
 		exit_error("data malloc()", EXIT_FAILURE);
