@@ -6,14 +6,14 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:23:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:36:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:11:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* returns time in ms */
-long	get_time(void)
+int	get_time(void)
 {
 	struct timeval	time;
 
@@ -23,9 +23,9 @@ long	get_time(void)
 }
 
 /* usleep but more precise and in ms */
-void	ft_usleep(long ms)
+void	ft_usleep(int ms)
 {
-	long	start;
+	int	start;
 
 	start = get_time();
 	while (get_time() - start < ms)

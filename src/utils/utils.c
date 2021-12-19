@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:51:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 01:28:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:13:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr_fd(int fd, char *s)
 		write(fd, s++, 1);
 }
 
-int	ft_atoi(char *s)
+long	ft_atoi(char *s)
 {
 	unsigned long long	value;
 	int					sign;
@@ -39,9 +39,5 @@ int	ft_atoi(char *s)
 	}
 	while (s[i] >= '0' && s[i] <= '9')
 		value = value * 10 + s[i++] - 48;
-	if (value > 9223372036854775807 && sign == 1)
-		return (-1);
-	else if (value > 9223372036854775807 && sign == -1)
-		return (0);
 	return (value * sign);
 }

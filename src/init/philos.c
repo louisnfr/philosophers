@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 01:47:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:11:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	*is_dead(void *arg)
 {
 	t_data *data;
 	t_philo *philo;
-	long	time;
+	int	time;
 
 	philo = arg;
 	data = philo->data;

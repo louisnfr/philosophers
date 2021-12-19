@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 01:52:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 02:12:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	clean_data(t_data *data);
 
 /*** utils ***/
 void	ft_putstr_fd(int fd, char *s);
-int		ft_atoi(char *s);
+long	ft_atoi(char *s);
 /* mutex */
 void	write_mutex(t_mutex *mutex, int value);
 int		read_mutex(t_mutex *mutex);
 /* time*/
-long	get_time(void);
-void	ft_usleep(long time);
+int		get_time(void);
+void	ft_usleep(int time);
 /* print */
 void	update_status(char *msg, t_philo *philo);
 void	prompt(void);
