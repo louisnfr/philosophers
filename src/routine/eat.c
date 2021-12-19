@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:44:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 01:54:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	put_forks(t_philo *philo, int i)
 	pthread_mutex_unlock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
 }
 
-t_bool	eat_action(t_philo *philo, int i)
+void	eat_action(t_philo *philo, int i)
 {
 	if (take_forks(philo, i) == 0)
 	{
@@ -37,5 +37,4 @@ t_bool	eat_action(t_philo *philo, int i)
 		philo->meal_count++;
 		put_forks(philo, i);
 	}
-	return (SUCCESS);
 }

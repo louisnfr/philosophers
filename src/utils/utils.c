@@ -6,21 +6,11 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:51:15 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/18 02:45:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 01:28:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-// static int	ft_strlen(char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s && s[i])
-// 		i++;
-// 	return (i);
-// }
 
 void	ft_putstr_fd(int fd, char *s)
 {

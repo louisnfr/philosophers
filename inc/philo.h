@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:45:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 01:52:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ void	join_philos(t_data *data);
 t_bool	check_input(int ac, char **av);
 
 /*** routine ***/
-void	*is_dead(void *arg);
-void	is_all_fed(t_data *data);
 void	*routine(void *arg);
-t_bool	eat_action(t_philo *philo, int i);
+void	eat_action(t_philo *philo, int i);
 
 /*** exit ***/
 void	exit_error(char *error_msg, int exit_code);

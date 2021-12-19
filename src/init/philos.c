@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_philos.c                                    :+:      :+:    :+:   */
+/*   philos.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:37:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 01:47:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,26 @@ static void	init_philo(t_philo *philo, int i, t_data *data)
 	philo->data = data;
 }
 
-void	*is_dead(void *arg)
+/* thread to check continuously if the philosopher is dead */
+static void	*is_dead(void *arg)
 {
+	t_data *data;
 	t_philo *philo;
 	long	time;
 
 	philo = arg;
-	ft_usleep(philo->data->time.die);
-	time = get_time() - philo->data->time.start;
-	if (time - philo->last_meal >= philo->data->time.die)
+	data = philo->data;
+	ft_usleep(data->time.die);
+	time = get_time() - data->time.start;
+	while ((!data->must_eat || philo->meal_count < data->must_eat)
+		&& read_mutex(&data->death) == FALSE)
 	{
-		update_status(DIED, philo);
-		write_mutex(&philo->data->write, 0);
-		write_mutex(&philo->data->death, 1);
+		if (time - philo->last_meal >= data->time.die)
+		{
+			update_status(DIED, philo);
+			write_mutex(&data->write, FALSE);
+			write_mutex(&data->death, TRUE);
+		}
 	}
 	return (NULL);
 }

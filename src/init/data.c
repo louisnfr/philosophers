@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 00:25:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/19 01:43:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	init_mutexes(t_data *data)
 		pthread_mutex_init(&data->fork[i], NULL);
 	pthread_mutex_init(&data->death.mutex, NULL);
 	pthread_mutex_init(&data->write.mutex, NULL);
-	write_mutex(&data->death, 0);
-	write_mutex(&data->write, 1);
+	write_mutex(&data->write, TRUE);
+	write_mutex(&data->death, FALSE);
 }
 
 static void	init_values(t_data *data, char **av)
@@ -52,7 +52,7 @@ static void	init_values(t_data *data, char **av)
 	if (av[5])
 		data->must_eat = ft_atoi(av[5]);
 	else
-		data->must_eat = -1;
+		data->must_eat = 0;
 }
 
 t_data	*init_data(int ac, char **av)
