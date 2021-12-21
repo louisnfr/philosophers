@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:44:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/21 20:16:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static t_bool	take_forks(t_philo *philo, int i)
 
 static void	put_forks(t_philo *philo, int i)
 {
-	pthread_mutex_unlock(&philo->data->fork[i]);
 	pthread_mutex_unlock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
+	pthread_mutex_unlock(&philo->data->fork[i]);
 }
 
 void	eat_action(t_philo *philo, int i)

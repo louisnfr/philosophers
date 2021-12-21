@@ -49,9 +49,9 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
 LDFLAGS	= -pthread
-DEBUG	= -g3 -fsanitize=address
+DEBUG	= -g3 -fsanitize=thread
 
 vpath %.c $(addprefix $(SRC_DIR)/, . init parsing routine exit utils)
 
