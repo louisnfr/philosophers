@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/19 00:48:11 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/22 17:33:31 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP #$(DEBUG)
 LDFLAGS	= -pthread
 DEBUG	= -g3 -fsanitize=thread
 

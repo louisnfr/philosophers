@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/21 18:26:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/22 17:52:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ static void	*death(void *arg)
 {
 	t_data	*data;
 	t_philo	*philo;
+	int		time;
 
 	philo = arg;
 	data = philo->data;
-	while ((!data->must_eat || philo->meal_count < data->must_eat)
-		&& read_mutex(&data->death) == FALSE)
+	while ((!data->must_eat) && read_mutex(&data->death) == FALSE)
 	{
-		if (get_time() - data->time.start - philo->last_meal >= data->time.die)
+		pthread_mutex_lock(&philo->data->meal_count_mutex);
+		if (philo->meal_count < data->must_eat)
+			return (0);
+		pthread_mutex_unlock(&philo->data->meal_count_mutex);
+		pthread_mutex_lock(&philo->data->meal_mutex);
+		time = get_time() - data->time.start - philo->last_meal;
+		pthread_mutex_unlock(&philo->data->meal_mutex);
+		if (time > data->time.die)
 		{
 			update_status(DIED, philo);
 			write_mutex(&data->write, FALSE);

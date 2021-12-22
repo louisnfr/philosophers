@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/21 18:29:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/22 17:25:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	init_mutexes(t_data *data)
 		pthread_mutex_init(&data->fork[i], NULL);
 	pthread_mutex_init(&data->death.mutex, NULL);
 	pthread_mutex_init(&data->write.mutex, NULL);
+	pthread_mutex_init(&data->meal_mutex, NULL);
+	pthread_mutex_init(&data->meal_count_mutex, NULL);
 	write_mutex(&data->write, TRUE);
 	write_mutex(&data->death, FALSE);
 }

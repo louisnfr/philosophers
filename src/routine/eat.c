@@ -6,35 +6,56 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/21 20:16:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/22 17:33:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static t_bool	take_forks(t_philo *philo, int i)
+static void	take_forks(t_philo *philo, int i)
 {
-	pthread_mutex_lock(&philo->data->fork[i]);
-	pthread_mutex_lock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
-	update_status(TAKE_FORK, philo);
-	update_status(TAKE_FORK, philo);
-	return (SUCCESS);
+	int	next_fork;
+
+	next_fork = (i + 1) % philo->data->nb_philos;
+	if (i % 2 == 0)
+	{
+		pthread_mutex_lock(&philo->data->fork[next_fork]);
+		update_status(TAKE_FORK, philo);
+		pthread_mutex_lock(&philo->data->fork[i]);
+		update_status(TAKE_FORK, philo);
+	}
+	else
+	{
+		pthread_mutex_lock(&philo->data->fork[i]);
+		update_status(TAKE_FORK, philo);
+		pthread_mutex_lock(&philo->data->fork[next_fork]);
+		update_status(TAKE_FORK, philo);
+	}
 }
 
 static void	put_forks(t_philo *philo, int i)
 {
-	pthread_mutex_unlock(&philo->data->fork[(i + 1) % philo->data->nb_philos]);
-	pthread_mutex_unlock(&philo->data->fork[i]);
+	int	next_fork;
+
+	next_fork = (i + 1) % philo->data->nb_philos;
+	if (i % 2 == 0)
+	{
+		pthread_mutex_unlock(&philo->data->fork[i]);
+		pthread_mutex_unlock(&philo->data->fork[next_fork]);
+	}
+	else
+	{
+		pthread_mutex_unlock(&philo->data->fork[next_fork]);
+		pthread_mutex_unlock(&philo->data->fork[i]);
+	}
 }
 
 void	eat_action(t_philo *philo, int i)
 {
-	if (take_forks(philo, i) == SUCCESS)
-	{
-		philo->last_meal = get_time() - philo->data->time.start;
-		update_status(EAT, philo);
-		ft_usleep(philo->data->time.eat);
-		philo->meal_count++;
-		put_forks(philo, i);
-	}
+	take_forks(philo, i);
+	philo->last_meal = get_time() - philo->data->time.start;
+	update_status(EAT, philo);
+	ft_usleep(philo->data->time.eat);
+	philo->meal_count++;
+	put_forks(philo, i);
 }
