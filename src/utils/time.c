@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:23:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 02:37:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 00:36:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_time(void)
 	struct timeval	time;
 
 	if (gettimeofday(&time, NULL) < 0)
-		exit_error("gettimeofday()", EXIT_FAILURE);
+		return (-1);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 

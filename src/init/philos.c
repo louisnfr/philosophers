@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:02:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 00:34:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ t_bool	create_philos(t_data *data)
 		init_philo(&data->philo[i], i, data);
 		if (pthread_create(&data->philo[i].thread, NULL,
 				&routine, &data->philo[i]))
-			exit_error_free("pthread_create()", EXIT_FAILURE, data);
+			return (FAILURE);
 		if (pthread_create(&data->philo[i].death_thread, NULL,
 				&death, &data->philo[i]))
-			exit_error_free("pthread_create()", EXIT_FAILURE, data);
+			return (FAILURE);
 	}
 	return (SUCCESS);
 }

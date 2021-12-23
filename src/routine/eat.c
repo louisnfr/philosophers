@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:22:25 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 00:32:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	take_forks(t_philo *philo, int i)
 	int	next_fork;
 
 	next_fork = (i + 1) % philo->data->nb_philos;
-	printf("philo %d: %d - %d\n", i, i, next_fork);
 	if (i % 2 == 0)
 	{
 		pthread_mutex_lock(&philo->data->fork[next_fork]);

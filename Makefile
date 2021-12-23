@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/23 18:31:42 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/24 00:36:22 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =				\
 		$(ROUTINE)	\
 		$(PARSING)	\
 		$(INIT)		\
-		$(EXIT)		\
+		$(FREE)		\
 		$(UTILS)
 
 INIT =					\
@@ -31,8 +31,7 @@ ROUTINE =				\
 		routine.c		\
 		eat.c
 
-EXIT =					\
-		exit.c			\
+FREE =					\
 		clean_data.c
 
 UTILS =					\
@@ -53,7 +52,7 @@ CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 LDFLAGS	= -pthread
 DEBUG	= -g3 -fsanitize=thread
 
-vpath %.c $(addprefix $(SRC_DIR)/, . init parsing routine exit utils)
+vpath %.c $(addprefix $(SRC_DIR)/, . init parsing routine free utils)
 
 all: $(NAME)
 

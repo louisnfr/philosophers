@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/22 17:25:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 00:34:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static pthread_mutex_t	*init_forks(t_data *data)
 
 	forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
 	if (!forks)
-		exit_error("fork malloc()", EXIT_FAILURE);
+		return (NULL);
 	return (forks);
 }
 
@@ -62,16 +62,16 @@ t_data	*init_data(int ac, char **av)
 	t_data	*data;
 
 	if (!check_input(ac, av))
-		exit_error("invalid arguments", EXIT_FAILURE);
+		return (NULL);
 	data = malloc(sizeof(t_data));
 	if (!data)
-		exit_error("data malloc()", EXIT_FAILURE);
+		return (NULL);
 	data->nb_philos = ft_atoi(av[1]);
 	data->fork = init_forks(data);
 	data->time = init_time(av, data);
 	data->philo = malloc(sizeof(t_philo) * data->nb_philos);
 	if (!data->philo)
-		exit_error("philo malloc()", EXIT_FAILURE);
+		return (NULL);
 	init_values(data, av);
 	init_mutexes(data);
 	return (data);
