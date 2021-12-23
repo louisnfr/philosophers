@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:23:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:11:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 02:37:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	ft_usleep(int ms)
 	int	start;
 
 	start = get_time();
-	while (get_time() - start < ms)
+	while (get_time() < ms + start)
 		usleep(100);
 }
