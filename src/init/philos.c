@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/22 17:52:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 00:15:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,22 @@ static void	*death(void *arg)
 	{
 		pthread_mutex_lock(&philo->data->meal_count_mutex);
 		if (philo->meal_count < data->must_eat)
+		{
+			printf("death\n");
 			return (0);
+		}
 		pthread_mutex_unlock(&philo->data->meal_count_mutex);
 		pthread_mutex_lock(&philo->data->meal_mutex);
 		time = get_time() - data->time.start - philo->last_meal;
 		pthread_mutex_unlock(&philo->data->meal_mutex);
 		if (time > data->time.die)
 		{
+			printf("DIED\n");
 			update_status(DIED, philo);
 			write_mutex(&data->write, FALSE);
 			write_mutex(&data->death, TRUE);
+			clean_data(data);
+			exit(0);
 		}
 	}
 	return (NULL);
