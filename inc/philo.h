@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:33:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 00:44:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_bool		check_input(int ac, char **av);
 /*** routine ***/
 void		*routine(void *arg);
 void		eat_action(t_philo *philo, int i);
+void		*death(void *arg);
 
 /*** free ***/
 void		clean_data(t_data *data);

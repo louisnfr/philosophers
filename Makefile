@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/24 00:36:22 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/24 00:44:56 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ PARSING =				\
 		input.c
 
 ROUTINE =				\
+		death.c			\
 		routine.c		\
 		eat.c
 
@@ -48,7 +49,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
 LDFLAGS	= -pthread
 DEBUG	= -g3 -fsanitize=thread
 
