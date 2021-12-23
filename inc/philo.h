@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 02:58:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 01:45:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		read_mutex(t_mutex *mutex);
 int		get_time(void);
 void	ft_usleep(int time);
 /* print */
-void	update_status(char *msg, t_philo *philo);
+void	update_status(char *msg, t_philo *philo, int death);
 void	prompt(void);
 
 #endif

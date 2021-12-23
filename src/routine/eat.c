@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/22 22:56:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 01:46:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ static void	take_forks(t_philo *philo, int i)
 	if (i % 2 == 0)
 	{
 		pthread_mutex_lock(&philo->data->fork[next_fork]);
-		update_status(TAKE_FORK, philo);
+		update_status(TAKE_FORK, philo, FALSE);
 		pthread_mutex_lock(&philo->data->fork[i]);
-		update_status(TAKE_FORK, philo);
+		update_status(TAKE_FORK, philo, FALSE);
 	}
 	else
 	{
 		pthread_mutex_lock(&philo->data->fork[i]);
-		update_status(TAKE_FORK, philo);
+		update_status(TAKE_FORK, philo, FALSE);
 		pthread_mutex_lock(&philo->data->fork[next_fork]);
-		update_status(TAKE_FORK, philo);
+		update_status(TAKE_FORK, philo, FALSE);
 	}
 }
 
@@ -54,7 +54,7 @@ void	eat_action(t_philo *philo, int i)
 {
 	take_forks(philo, i);
 	philo->last_meal = get_time() - philo->data->time.start;
-	update_status(EAT, philo);
+	update_status(EAT, philo, FALSE);
 	ft_usleep(philo->data->time.eat);
 	philo->meal_count++;
 	put_forks(philo, i);
