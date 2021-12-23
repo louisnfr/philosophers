@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 20:24:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 20:40:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	*death(void *arg)
 
 	philo = arg;
 	data = philo->data;
-	while (read_mutex(&data->death) == FALSE)
+	while (!data->must_eat && read_mutex(&data->death) == FALSE)
 	{
 		pthread_mutex_lock(&philo->data->meal_count_mutex);
 		if (!(philo->meal_count < data->must_eat || !data->must_eat))
