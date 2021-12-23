@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 23:29:12 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 02:19:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 03:15:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	put_forks(t_philo *philo, int i)
 void	eat_action(t_philo *philo, int i)
 {
 	take_forks(philo, i);
-	philo->last_meal = get_time() - philo->data->time.start;
+	philo->last_meal = get_time();
 	update_status(EAT, philo, FALSE);
 	ft_usleep(philo->data->time.eat);
 	philo->meal_count++;
