@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:56:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/19 01:57:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 20:03:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ static void	destroy_mutexes(t_data *data)
 	i = -1;
 	while (++i < data->nb_philos)
 		pthread_mutex_destroy(&data->fork[i]);
+	pthread_mutex_destroy(&data->meal_count_mutex);
+	pthread_mutex_destroy(&data->meal_mutex);
+	pthread_mutex_destroy(&data->death.mutex);
+	pthread_mutex_destroy(&data->write.mutex);
 }
 
 void	clean_data(t_data *data)

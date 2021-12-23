@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 03:15:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/23 20:02:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	*death(void *arg)
 		{
 			update_status(DIED, philo, TRUE);
 			write_mutex(&data->death, TRUE);
+			return (NULL);
 		}
 	}
 	return (NULL);
