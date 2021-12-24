@@ -6,29 +6,11 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:56:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 20:03:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:21:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-/* checks and displays if all philosophers have eaten */
-static void	is_all_fed(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	if (read_mutex(&data->death) || data->must_eat < 0)
-		return ;
-	while (++i < data->nb_philos)
-	{
-		if (data->philo[i].meal_count < data->must_eat)
-			return ;
-	}
-	pthread_mutex_lock(&data->write.mutex);
-	printf("All philosophers have eaten\n");
-	pthread_mutex_unlock(&data->write.mutex);
-}
 
 static void	destroy_mutexes(t_data *data)
 {
@@ -45,7 +27,7 @@ static void	destroy_mutexes(t_data *data)
 
 void	clean_data(t_data *data)
 {
-	is_all_fed(data);
+	// is_all_fed(data);
 	destroy_mutexes(data);
 	free(data->fork);
 	free(data->philo);

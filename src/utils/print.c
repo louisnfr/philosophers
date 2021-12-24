@@ -6,13 +6,13 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:33:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/23 02:53:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:28:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	update_status(char *msg, t_philo *philo, int death)
+void	update_status(char *msg, t_philo *philo, int death, int all_fed)
 {
 	t_data	*data;
 	int		time;
@@ -24,7 +24,10 @@ void	update_status(char *msg, t_philo *philo, int death)
 	{
 		if (death == TRUE)
 			data->write.value = FALSE;
-		printf(" %-6d ms | %4d | %s\n", time, philo->id + 1, msg);
+		if (all_fed == FALSE)
+			printf(" %-6d ms | %4d | %s\n", time, philo->id + 1, msg);
+		else
+			printf(" %-6d ms | %s\n", time, msg);
 	}
 	pthread_mutex_unlock(&data->write.mutex);
 }

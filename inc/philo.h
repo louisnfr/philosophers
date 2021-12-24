@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:27:28 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:44:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:29:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define SLEEP "\e[34mis sleeping\e[0m"
 # define THINK "\e[35mis thinking\e[0m"
 # define DIED "\e[91mdied\e[0m"
+# define ALL_FED "All philosophers have eaten"
 
 /*** init ***/
 t_data		*init_data(int ac, char **av);
@@ -39,6 +40,7 @@ t_bool		check_input(int ac, char **av);
 void		*routine(void *arg);
 void		eat_action(t_philo *philo, int i);
 void		*death(void *arg);
+void		*all_fed(void *arg);
 
 /*** free ***/
 void		clean_data(t_data *data);
@@ -53,7 +55,7 @@ int			read_mutex(t_mutex *mutex);
 int			get_time(void);
 void		ft_usleep(int time);
 /* print */
-void		update_status(char *msg, t_philo *philo, int death);
+void		update_status(char *msg, t_philo *philo, int death, int all_fed);
 void		prompt(void);
 
 #endif

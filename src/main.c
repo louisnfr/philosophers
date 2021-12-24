@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:28:10 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 01:25:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:40:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	main(int ac, char **av)
 	if (!data)
 		return (EXIT_FAILURE);
 	prompt();
-	if (create_philos(data))
-		join_philos(data);
+	create_philos(data);
+	pthread_mutex_lock(&data->one_died);
+	pthread_mutex_unlock(&data->one_died);
+	// join_philos(data);
 	clean_data(data);
 }

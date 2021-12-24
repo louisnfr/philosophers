@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:21:00 by lraffin           #+#    #+#              #
-#    Updated: 2021/12/24 00:44:56 by lraffin          ###   ########.fr        #
+#    Updated: 2021/12/24 03:11:23 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ PARSING =				\
 		input.c
 
 ROUTINE =				\
-		death.c			\
+		end.c			\
 		routine.c		\
 		eat.c
 

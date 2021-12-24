@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:01:13 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:43:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:43:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,15 @@ t_bool	create_philos(t_data *data)
 		if (pthread_create(&data->philo[i].thread, NULL,
 				&routine, &data->philo[i]))
 			return (FAILURE);
-		if (pthread_create(&data->philo[i].death_thread, NULL,
+		pthread_detach(data->philo[i].thread);
+		if (pthread_create(&data->philo[i].all_fed_thread, NULL,
 				&death, &data->philo[i]))
 			return (FAILURE);
+		pthread_detach(data->philo[i].all_fed_thread);
+		if (pthread_create(&data->philo[i].death_thread, NULL,
+				&all_fed, &data->philo[i]))
+			return (FAILURE);
+		pthread_detach(data->philo[i].death_thread);
 	}
 	return (SUCCESS);
 }
@@ -47,5 +53,6 @@ void	join_philos(t_data *data)
 	{
 		pthread_join(data->philo[i].thread, NULL);
 		pthread_join(data->philo[i].death_thread, NULL);
+		pthread_join(data->philo[i].all_fed_thread, NULL);
 	}
 }

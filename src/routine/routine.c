@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:13:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 01:11:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 03:30:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	sleep_action(t_philo *philo)
 	t_data	*data;
 
 	data = philo->data;
-	update_status(SLEEP, philo, FALSE);
+	update_status(SLEEP, philo, FALSE, FALSE);
 	ft_usleep(data->time.sleep);
 }
 
@@ -26,7 +26,7 @@ static void	think_action(t_philo *philo)
 	t_data	*data;
 
 	data = philo->data;
-	update_status(THINK, philo, FALSE);
+	update_status(THINK, philo, FALSE, FALSE);
 }
 
 /* activity of each philosopher */
@@ -38,11 +38,11 @@ void	*routine(void *arg)
 	philo = arg;
 	data = philo->data;
 	if (data->nb_philos == 1)
-		update_status(TAKE_FORK, philo, FALSE);
+		update_status(TAKE_FORK, philo, FALSE, FALSE);
 	// if (philo->id % 2 == 0)
 	// 	ft_usleep(5);
 	while ((philo->meal_count < data->must_eat || !data->must_eat)
-		&& read_mutex(&data->death) == FALSE && data->nb_philos > 1)
+		&& !read_mutex(&data->death) && data->nb_philos > 1)
 	{
 		eat_action(philo, philo->id);
 		sleep_action(philo);
