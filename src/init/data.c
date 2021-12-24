@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 15:14:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 00:34:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 01:25:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ t_data	*init_data(int ac, char **av)
 	t_data	*data;
 
 	if (!check_input(ac, av))
+	{
+		ft_putstr_fd(2, "error: invalid arguments\n");
 		return (NULL);
+	}
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
