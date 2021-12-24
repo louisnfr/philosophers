@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:56:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 03:21:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 13:46:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	destroy_mutexes(t_data *data)
 
 void	clean_data(t_data *data)
 {
-	// is_all_fed(data);
 	destroy_mutexes(data);
 	free(data->fork);
 	free(data->philo);

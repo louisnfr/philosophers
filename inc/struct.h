@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:31:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/12/24 03:09:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/12/24 13:46:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct s_data
 	t_mutex			write;
 	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	meal_count_mutex;
-	pthread_mutex_t	one_died;
 }	t_data;
 
 #endif
